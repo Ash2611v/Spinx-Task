@@ -1,0 +1,14 @@
+.custom-table {
+    background-color: #f8f9fa;
+    /* Light background color */
+}
+
+.custom-table th,
+.custom-table td {
+    text-align: center;
+}
+
+.custom-alert {
+    margin-top: 10px;
+    text-align: center;
+}

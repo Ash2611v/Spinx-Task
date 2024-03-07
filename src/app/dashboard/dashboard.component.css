@@ -1,0 +1,26 @@
+.login-card {
+    background-color: linear-gradient(to right, #e2e2e2, #c9d6ff);;
+    /* Light background color */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    border: none;
+    /* No border */
+}
+
+.btn-custom {
+    background-color: #007bff;
+    /* Primary button color */
+    border-color: #007bff;
+    /* Border color */
+}
+
+.btn-custom:hover {
+    background-color: #512da8;
+    /* Darker color on hover */
+    border-color: #512da8;
+}
+
+.btn-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    /* Focus effect */
+}

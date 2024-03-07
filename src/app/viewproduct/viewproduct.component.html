@@ -1,0 +1,143 @@
+<div class="mt-5">
+  <table class="table table-bordered custom-table">
+    <thead class="thead">
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Phone no</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let product of productDetails">
+        <td>{{ product.email }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.phoneNumber }}</td>
+        <td>{{ product.roleName }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="edit(product)"
+          >
+            Edit
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteProduct(product)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="deleteAlert"
+    class="alert alert-success alert-dismissible fade show custom-alert"
+    role="alert"
+  >
+    <strong>Success!</strong> Product is deleted successfully.
+    <button
+      (click)="cancelAlert()"
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updateProduct()">
+          <div class="formgroup mt-3">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              disabled
+              [(ngModel)]="productToUpdate.email"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              #name
+              [(ngModel)]="productToUpdate.name"
+              name="name"
+              class="form-control"
+              placeholder="Name"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="number"
+              #brand
+              [(ngModel)]="productToUpdate.phoneNumber"
+              name="phoneNumber"
+              class="form-control"
+              placeholder="Phone no"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="roleName">Role </label>
+            <input
+              type="text"
+              #price
+              [(ngModel)]="productToUpdate.roleName"
+              name="roleName"
+              class="form-control"
+              placeholder="role"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <input type="submit" value="Update" class="btn btn-primary w-100" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      *ngIf="updateAlert"
+      class="alert alert-success alert-dismissible fade show custom-alert"
+      role="alert"
+    >
+      <strong>Success!</strong> Product is updated successfully.
+      <button
+        (click)="closeAlert()"
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div
+  class="card mt-5 w-50"
+  style="
+    padding: 20px;
+    position: relative;
+    left: 250px;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  "
+>
+  <form #productForm="ngForm" (ngSubmit)="submit(productForm)">
+    <div class="formgroup mt-3">
+      <label for="name"> <b>Customer Name: </b></label>
+      <input
+        type="text"
+        required
+        #name
+        ngModel
+        name="name"
+        class="form-control"
+        placeholder=" Name"
+      />
+    </div>
+    <div class="formgroup mt-3">
+      <label for="brand"> <b>Email</b></label>
+      <input
+        type="email"
+        required
+        #brand
+        ngModel
+        name="email"
+        class="form-control"
+        placeholder="Email"
+      />
+    </div>
+    <div class="formgroup mt-3">
+      <label for="price"> <b>Phone no</b></label>
+      <input
+        type="tel"
+        required
+        #price
+        ngModel
+        name="phoneNumber"
+        class="form-control"
+        placeholder="Phone no"
+      />
+    </div>
+    <div class="formgroup mt-3" style="position: relative; left: 200px">
+      <input
+        type="submit"
+        value="Add"
+        class="btn btn-primary w-20"
+        [disabled]="!productForm.form.valid"
+      />
+    </div>
+  </form>
+
+  <br />
+  <div
+    *ngIf="alert"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>Success!</strong> Customer added successfully
+    <button
+      (click)="closeAlert()"
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+    <!-- View Data button -->
+    <button class="btn btn-primary mt-3" (click)="View()">View Data</button>
+  </div>
+
+  <!-- Error message -->
+  <div
+    *ngIf="productForm.form.invalid && productForm.submitted"
+    class="alert alert-danger mt-3"
+  >
+    Please fill all the required fields properly.
+  </div>
+</div>
