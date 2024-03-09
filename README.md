@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## for spring boot 
 1. use intellije ide.
 2. and open spring project folder in ide
-3.  Add the postgre port no. , username and password in 
+3.  Add the postgre port no. , username and password in ../task\springApplication\springApplication\src\main\resources\appication.properties
 4. open postgre sql also and create a 'AngAppDB' database save it .
-5. run the both angular and spring project
+5. run the spring project.
+6. run angular project also . 
