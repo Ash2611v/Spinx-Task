@@ -1,7 +1,8 @@
 # Task 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
-##Import all modules of angular 
-Run 'npm install' in terminal for angular frontend
+## Install the angular packages 
+open folder in vs code 
+Run 'npm install' in terminal for angular frontend .
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -27,7 +28,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## for spring boot 
-1. use intellije ide
-2. and open spring project folder in intellij and run the project 
-3. open postgre sql also and create a 'AngAppDB' database save it .
-4. run the both angular and spring project
+1. use intellije ide.
+2. and open spring project folder in ide
+3.  Add the postgre port no. , username and password in 
+4. open postgre sql also and create a 'AngAppDB' database save it .
+5. run the both angular and spring project
