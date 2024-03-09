@@ -1,0 +1,148 @@
+<div class="mt-5">
+  <table
+    class="table table-bordered custom-table"
+    style="max-width: 100%; background-color: rgba(255, 255, 255, 0.9)"
+  >
+    <thead class="thead" style="background-color: rgba(0, 0, 0, 0.1)">
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Phone no</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let customer of customerDetails">
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.phoneNumber }}</td>
+        <td>{{ customer.role }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="edit(customer)"
+          >
+            Edit
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteCustomer(customer)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    *ngIf="deleteAlert"
+    class="alert alert-success alert-dismissible fade show custom-alert"
+    role="alert"
+    style="max-width: 100%; background-color: rgba(0, 255, 0, 0.1)"
+  >
+    <strong>Success!</strong> Product is deleted successfully.
+    <button
+      (click)="cancelAlert()"
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgba(0, 0, 0, 0.1)">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updateCustomer()">
+          <div class="formgroup mt-3">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              disabled
+              [(ngModel)]="customerToUpdate.email"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              #name
+              [(ngModel)]="customerToUpdate.username"
+              name="name"
+              class="form-control"
+              placeholder="Name"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="number"
+              #brand
+              [(ngModel)]="customerToUpdate.phoneNumber"
+              name="phoneNumber"
+              class="form-control"
+              placeholder="Phone no"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <label for="roleName">Role </label>
+            <input
+              type="text"
+              disabled
+              [(ngModel)]="customerToUpdate.role"
+              name="roleName"
+              class="form-control"
+              placeholder="role"
+            />
+          </div>
+          <div class="formgroup mt-3">
+            <input type="submit" value="Update" class="btn btn-primary w-100" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      *ngIf="updateAlert"
+      class="alert alert-success alert-dismissible fade show custom-alert"
+      role="alert"
+      style="max-width: 100%; background-color: rgba(0, 255, 0, 0.1)"
+    >
+      <strong>Success!</strong> Product is updated successfully.
+      <button
+        (click)="closeAlert()"
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>
